@@ -15,7 +15,7 @@ int main(int argc, char *argv[]){
 		in_file.open(argv[1], std::ios_base::in);
 		if (!in_file.is_open()){
 			cout << "Not a valid file.\n";
-			return;
+			return 0 ;
 		}
 		string words_in_file = string((std::istreambuf_iterator<char>(in_file)), std::istreambuf_iterator<char>());
 		countLine(words_in_file);
@@ -37,9 +37,7 @@ int countLine(string pName){
 int countChar(string pName){
 	int sum = 0;
 	for (auto i = pName.begin(); i < pName.end(); i++){
-		if ((int)*i > 32 && (int)*i < 127){
-			sum++;
-		}
+		sum++;
 	}
 	cout << sum << " Characters\n";
 	return sum;
